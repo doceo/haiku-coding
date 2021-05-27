@@ -1,7 +1,6 @@
 from json import dump, load
 from random import choice
 
-import certifi
 from kivy.core.clipboard import Clipboard
 from kivy.core.window import Window
 from kivy.lang import Builder
