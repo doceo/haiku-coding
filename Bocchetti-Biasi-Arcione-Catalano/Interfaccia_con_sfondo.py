@@ -1,3 +1,8 @@
+#Lavoro a cura di: Arcione Vittoria, Biasi Luca, Bocchetti Francesco, Catalano Giovanni
+
+#Per utilizzare il codice è necessario scaricare l'intera cartella in cui è presente questo file
+
+#Librerie 
 import tkinter as tk
 from tkinter import*
 from tkinter import Menu
@@ -5,14 +10,21 @@ from tkinter import messagebox
 from csv import reader
 from random import randint as rd
 from tkinter.filedialog import asksaveasfile
+from PIL import Image, ImageTk
 
 #Interfaccia e layout interno
 root= Tk()
 finestra= tk.Canvas(root, width = 600, height = 300, bg="#00ffa2")
 root.configure(background="#00ffa2")
-root.resizable(False, False)
+root.resizable()
 root.title("Bansho un'Haiku al giorno")
 finestra.pack(side= BOTTOM)
+
+load= Image.open("Sfondo.gif")
+render= ImageTk.PhotoImage(load)
+img= Label(image=render)
+img.image = render
+finestra.create_window(300,150, window=img)  
 
 finestra2= tk.Canvas(root, width = 400, height = 120, bg="#00ffa2")
 finestra2.pack()
@@ -21,6 +33,7 @@ finestra.create_window(300,140, window=finestra2)
 quinario= finestra2.create_text(200,30, font= ("georgia", 20))
 settenario= finestra2.create_text(200,60, font= ("georgia", 20))
 quinario2= finestra2.create_text(200,90, font= ("georgia", 20))
+
 
 #Lettore del file
 with open('Haiku_coding.csv', 'r', encoding="utf8") as csv_file:
@@ -103,5 +116,8 @@ root.config(menu=menubar)
 
 lbl.pack()
 tasto.pack()
+tasto1.pack()
+tasto2.pack()
+tasto3.pack()
 
 root.mainloop()
